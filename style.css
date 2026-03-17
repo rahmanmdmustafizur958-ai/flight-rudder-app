@@ -1,0 +1,207 @@
+:root {
+  --bg-dark: #0f172a;
+  --bg-panel: rgba(15, 23, 42, 0.75);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.5);
+  --border-light: rgba(255, 255, 255, 0.1);
+  --glass-blur: 16px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+#app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: var(--bg-dark);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--bg-panel);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* UI Overlay */
+.ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.main-header {
+  pointer-events: auto;
+  align-self: flex-start;
+  padding: 16px 24px;
+  margin-bottom: auto;
+  min-width: 300px;
+}
+
+.main-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.highlight {
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+#status-text {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.details-panel {
+  pointer-events: auto;
+  align-self: flex-end;
+  width: 350px;
+  max-width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: translateX(0);
+  transition: var(--transition);
+}
+
+.details-panel.hidden {
+  opacity: 0;
+  transform: translateX(400px);
+  pointer-events: none;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 12px;
+}
+
+.panel-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.icon-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.panel-content {
+  font-size: 0.95rem;
+}
+
+.placeholder-text {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stat-value {
+  color: var(--text-main);
+  font-weight: 600;
+  text-align: right;
+}
+
+.stat-value.highlight-value {
+  color: var(--accent);
+}
+
+/* Custom Marker Styling */
+.plane-marker {
+  transition: transform 0.2s linear, opacity 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+.plane-marker-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+.plane-marker:hover {
+  z-index: 1000 !important;
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  background: var(--bg-dark);
+}
+.leaflet-control-attribution {
+  background: rgba(0,0,0,0.5) !important;
+  color: rgba(255,255,255,0.5) !important;
+}
+.leaflet-control-attribution a {
+  color: rgba(255,255,255,0.7) !important;
+}
