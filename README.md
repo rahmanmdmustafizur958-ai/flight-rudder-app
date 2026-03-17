@@ -1,6 +1,6 @@
-# ✈️ Flight Radar: Finland
+# ✈️ Flight Radar: France
 
-A sleek, real-time flight tracking application focused on the Finnish airspace. This project utilizes the **OpenSky Network API** to fetch live aircraft data and **Leaflet.js** for an interactive, high-performance map interface.
+A sleek, real-time flight tracking application focused on the French airspace. This project utilizes the **OpenSky Network API** to fetch live aircraft data and **Leaflet.js** for an interactive, high-performance map interface.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -8,7 +8,7 @@ A sleek, real-time flight tracking application focused on the Finnish airspace. 
 ## ✨ Features
 
 - **Live Tracking**: Real-time aircraft positions updated every 10 seconds.
-- **Finnish Focus**: Pre-configured bounds to show activity specifically over Finland.
+- **French Focus**: Pre-configured bounds to show activity specifically over Metropolitan France.
 - **Interactive Map**: Built with Leaflet.js using a custom dark-themed map (CartoDB Dark Matter).
 - **Detailed Insights**: Click any aircraft to see its:
   - Callsign
@@ -39,9 +39,9 @@ A sleek, real-time flight tracking application focused on the Finnish airspace. 
 
 ## 📡 API Usage
 
-The application fetches data from the OpenSky REST API using the following bounding box for Finland:
-- **Latitude**: 59.5°N to 70.1°N
-- **Longitude**: 20.5°E to 31.6°E
+The application fetches data from the OpenSky REST API using the following bounding box for France:
+- **Latitude**: 42.3°N to 51.1°N
+- **Longitude**: -4.8°E to 8.2°E
 
 ## 📄 License
 

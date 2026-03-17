@@ -1,8 +1,8 @@
-const FINLAND_BOUNDS = {
-  lamin: 59.5,
-  lamax: 70.1,
-  lomin: 20.5,
-  lomax: 31.6
+const FRANCE_BOUNDS = {
+  lamin: 42.3,
+  lamax: 51.1,
+  lomin: -4.8,
+  lomax: 8.2
 };
 
 const state = {
@@ -19,7 +19,7 @@ function initMap() {
   state.map = L.map('map', {
     zoomControl: false,
     attributionControl: false
-  }).setView([64.0, 26.0], 5);
+  }).setView([46.6, 2.2], 6);
 
   L.tileLayer(tileUrl, {
     attribution,
@@ -57,7 +57,7 @@ function getIcon(heading, isSelected) {
 async function fetchFlights() {
   const statusElem = document.getElementById('status-text');
   try {
-    const url = `https://opensky-network.org/api/states/all?lamin=${FINLAND_BOUNDS.lamin}&lomin=${FINLAND_BOUNDS.lomin}&lamax=${FINLAND_BOUNDS.lamax}&lomax=${FINLAND_BOUNDS.lomax}`;
+    const url = `https://opensky-network.org/api/states/all?lamin=${FRANCE_BOUNDS.lamin}&lomin=${FRANCE_BOUNDS.lomin}&lamax=${FRANCE_BOUNDS.lamax}&lomax=${FRANCE_BOUNDS.lomax}`;
     const response = await fetch(url);
     if (!response.ok) throw new Error(`API Error: ${response.status}`);
     
